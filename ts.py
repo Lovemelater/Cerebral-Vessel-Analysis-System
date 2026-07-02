@@ -76,7 +76,7 @@ class MIPViewer(QWidget):
 
     def setup_ui(self):
         """设置UI布局"""
-        self.setWindowTitle("慧医智影 - 最大密度投影")
+        self.setWindowTitle("脑血管MRA分割与可视化系统 - 最大密度投影")
         self.resize(1000, 600)
         self.setStyleSheet("background-color: #121212;")
         

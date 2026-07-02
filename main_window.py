@@ -123,7 +123,7 @@ class MainWindow(QMainWindow):
         
         配置包括窗口标题、图标、主题样式、初始尺寸和焦点策略等
         """
-        self.setWindowTitle("慧医智影")
+        self.setWindowTitle("脑血管MRA分割与可视化系统")
         self.setWindowIcon(QIcon('image/rigbt.jpg'))
         self.theme_manager.apply_dark_theme() 
         self.resize(1502, 894)
