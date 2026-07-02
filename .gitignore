@@ -8,9 +8,6 @@ __pycache__/
 .idea/
 .vscode/
 
-# 模型权重文件（太大，不适合直接上传GitHub，建议使用Git LFS或网盘）
-*.pth
-
 # MHA数据文件
 mha/*.mha
 mha/*.npy
