@@ -15,5 +15,5 @@ mha/*.npy
 # 图片
 image/
 
-# NewHYZY（重复目录）
-NewHYZY/
+# Claude Code
+.claude/

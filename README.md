@@ -1,8 +1,6 @@
 # CereVAS — Cerebral Vessel Analysis System
 
-脑血管 MRA 分割与可视化系统
-
-脑血管 MRA 分割与可视化系统 —— 基于深度学习的医学图像血管自动分割、交互式标注与三维可视化平台。
+CereVAS (Cerebral Vessel Analysis System) —— 基于深度学习的脑血管自动分割、交互式标注与三维可视化平台。
 
 ## 功能特性
 
@@ -29,7 +27,7 @@
 ## 项目结构
 
 ```
-HYZY2.0/
+CereVAS/
 ├── main_window.py          # 主窗口，整合所有组件
 ├── image_display.py         # 2D 正交三视图显示
 ├── image_processor.py       # 医学图像加载与预处理
@@ -83,8 +81,8 @@ pip install PyQt5>=5.15 vtk>=9.0 SimpleITK>=2.0 numpy>=1.20 torch opencv-python
 ```bash
 # 安装 Git LFS 以获取模型权重
 git lfs install
-git clone git@github.com:Lovemelater/HYZY2.0.git
-cd HYZY2.0
+git clone git@github.com:Lovemelater/Cerebral-Vessel-Analysis-System.git
+cd Cerebral-Vessel-Analysis-System
 git lfs pull
 ```
 
