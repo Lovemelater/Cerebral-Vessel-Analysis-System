@@ -1,0 +1,550 @@
+/*
+styles.css
+应用程序全局样式表文件
+
+本文件定义了整个医学图像处理应用的视觉风格和UI组件样式，采用了深色主题设计以减少长时间使用的视觉疲劳，
+同时确保医学图像的显示效果更加清晰。样式按照组件类型分类组织，便于维护和扩展。
+
+设计原则：
+- 深色主题：减少眼部疲劳，突出医学图像内容
+- 蓝色主色调：科技感强，符合医疗软件定位
+- 清晰的视觉层次：重要操作元素易于识别
+*/
+
+/* ==================== 主窗口样式 ==================== */
+/* 应用程序主窗口背景和文字颜色设置 */
+QMainWindow {
+    background-color: #121212;
+    color: #e1e1e1;
+}
+
+/* 对话框统一使用深色背景 */
+QDialog{
+    background-color: #121212;
+    color: #e1e1e1;
+}
+
+/* ==================== 菜单栏样式 ==================== */
+/* 菜单栏基础样式，采用略浅于主背景的颜色形成层次感 */
+QMenuBar {
+    background-color: #1a1a1a;
+    color: #e1e1e1;
+}
+
+/* 菜单项基础样式，包含适当的间距和圆角设计 */
+QMenuBar::item {
+    spacing: 3px;
+    padding: 2px 10px;
+    background-color: transparent;
+    border-radius: 4px;
+}
+
+/* 菜单项悬停状态，使用鲜明的蓝色提示用户可交互 */
+QMenuBar::item:selected {
+    background-color: #2979ff;
+}
+
+/* 下拉菜单样式，保持整体深色风格的一致性 */
+QMenu {
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    border-radius: 5px;
+}
+
+/* 下拉菜单项样式，提供足够的点击区域 */
+QMenu::item {
+    padding: 5px 30px;
+    color: #e1e1e1;
+}
+
+/* 下拉菜单项选中状态，增强交互反馈 */
+QMenu::item:selected {
+    color: #ffffff;
+    background-color: #2979ff;
+}
+
+/* ==================== 框架容器样式 ==================== */
+/* 通用框架样式，用于组织界面元素，具有边框和圆角设计 */
+QFrame {
+    background-color: #1a1a1a;
+    color: #e1e1e1;
+    border: 1px solid #333333;
+    border-radius: 6px;
+}
+
+/* ==================== 按钮样式 ==================== */
+/* 主要操作按钮，采用醒目的蓝色设计 */
+QPushButton {
+    background-color: #2979ff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    font-weight: bold;
+}
+
+/* 按钮悬停状态，略微提亮表示可点击 */
+QPushButton:hover {
+    background-color: #3d8bff;
+}
+
+/* 按钮按下状态，颜色变暗提供触觉反馈 */
+QPushButton:pressed {
+    background-color: #2255cc;
+}
+
+/* ==================== 下拉选择框样式 ==================== */
+/* 通用下拉选择框，深色背景配白色文字，圆角设计现代美观 */
+QComboBox {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 11pt;
+    border: 2px solid #2a2a2a;
+    min-height: 20px;
+    text-align: center;/* 为没有箭头的下拉框添加右边距 */
+}
+
+/* 下拉框悬停状态，边框变为蓝色提醒用户注意 */
+QComboBox:hover {
+    border: 2px solid #2979ff;
+}
+
+/* 隐藏默认下拉箭头，采用自定义无箭头设计 */
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 0px; /* 隐藏下拉箭头区域 */
+    border: none;
+}
+
+/* 移除下拉箭头图标 */
+QComboBox::down-arrow {
+    image: none; /* 确保不显示任何图像 */
+    width: 0px;
+    height: 0px;
+}
+
+/* 下拉列表展开后的样式 */
+QComboBox QAbstractItemView {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    selection-background-color: #2979ff;
+    selection-color: #ffffff;
+    border: none;
+    border-radius: 0px;
+    padding: 0px;
+    outline: none;
+}
+
+/* 下拉列表项样式，提供合适的高度和分割线 */
+QComboBox QAbstractItemView::item {
+    min-height: 30px;
+    padding: 8px 20px;
+    border-bottom: 1px solid #3d3d3d;
+    font-size: 13pt;
+}
+
+/* 最后一个列表项移除底部分割线 */
+QComboBox QAbstractItemView::item:last-child {
+    border-bottom: none;
+}
+
+/* ==================== 滑动条样式 ==================== */
+/* 水平滑动条整体高度设置 */
+QSlider {
+    height: 20px;
+}
+
+/* 滑动条轨道样式，灰色背景表示可用范围 */
+QSlider::groove:horizontal {
+    background: #3d3d3d;
+    height: 4px;
+    border-radius: 2px;
+}
+
+/* 滑块手柄样式，蓝色圆形设计易于拖拽 */
+QSlider::handle:horizontal {
+    background-color: #2979ff;
+    border: none;
+    width: 16px;
+    height: 16px;
+    margin: -6px 0;
+    border-radius: 8px;
+}
+
+/* 滑块手柄悬停状态，颜色略微提亮 */
+QSlider::handle:horizontal:hover {
+    background-color: #3d8bff;
+}
+
+/* 已滑过部分的轨道样式，使用蓝色彩虹渐变增强视觉效果 */
+QSlider::sub-page:horizontal {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #00c6ff, stop: 1 #2979ff);
+    height: 4px;
+    border-radius: 2px;
+}
+
+/* ==================== 数值输入框样式 ==================== */
+/* 数值输入框基础样式，与整体深色主题协调 */
+QSpinBox {
+    background-color: #2a2a2a;
+    color: #e1e1e1;
+    border: 1px solid #3d3d3d;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+/* 输入框悬停状态，边框变为蓝色提示可编辑 */
+QSpinBox:hover {
+    border: 1px solid #2979ff;
+}
+
+/* ==================== 标签样式 ==================== */
+/* 通用标签样式，白色粗体文字确保可读性 */
+QLabel {
+    color: #e1e1e1;
+    font-weight: bold;
+}
+
+/* ==================== 复选框样式 ==================== */
+/* 复选框文字样式及与方框的间距 */
+QCheckBox {
+    color: #e1e1e1;
+    spacing: 8px;
+}
+
+/* 复选框指示器样式，方形设计带圆角 */
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    border: 1px solid #3d3d3d;
+}
+
+/* 未选中状态，深灰色背景 */
+QCheckBox::indicator:unchecked {
+    background-color: #2a2a2a;
+}
+
+/* 选中状态，蓝色背景表示已激活 */
+QCheckBox::indicator:checked {
+    background-color: #2979ff;
+}
+
+/* 悬停状态，边框变为蓝色提醒用户注意 */
+QCheckBox::indicator:hover {
+    border: 1px solid #2979ff;
+}
+
+/* ==================== 特定标签前景样式 ==================== */
+/* 特定医学图像显示标签的样式，黑色背景配蓝色边框突出显示区域 */
+QLabel[objectName="lab1_foreground"] {
+    background-color: #000000;
+    border: 1px solid #2979ff;
+    border-radius: 6px;
+}
+
+QLabel[objectName="lab2_foreground"] {
+    background-color: #000000;
+    border: 1px solid #2979ff;
+    border-radius: 6px;
+}
+
+QLabel[objectName="lab3_foreground"] {
+    background-color: #000000;
+    border: 1px solid #2979ff;
+    border-radius: 6px;
+}
+
+/* ==================== 特定框架样式 ==================== */
+/* 特定医学图像显示框架样式，黑色背景配蓝色边框突出显示区域 */
+QFrame#frame1 {
+    background-color: #000000;
+    border: 1px solid #2979ff;
+    border-radius: 6px;
+}
+
+/* ==================== 滚动条样式 ==================== */
+/* 垂直滚动条整体样式，窄宽度设计节省空间 */
+QScrollBar:vertical {
+    border: none;
+    background: #1a1a1a;
+    width: 10px;
+    margin: 0px 0px 0px 0px;
+    border-radius: 5px;
+}
+
+/* 滚动条拖拽块样式，灰色默认状态 */
+QScrollBar::handle:vertical {
+    background: #3d3d3d;
+    min-height: 20px;
+    border-radius: 5px;
+}
+
+/* 拖拽块悬停状态，变为蓝色表示可交互 */
+QScrollBar::handle:vertical:hover {
+    background: #2979ff;
+}
+
+/* 隐藏上下箭头按钮 */
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+/* 隐藏滚动条背景区域 */
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
+}
+
+/* ==================== 文件对话框样式 ==================== */
+/* 文件对话框基础样式，与主应用风格一致 */
+QFileDialog {
+    background-color: #121212;
+    color: #e1e1e1;
+}
+
+/* 文件列表视图样式 */
+QFileDialog QListView {
+    background-color: #1a1a1a;
+    color: #e1e1e1;
+    border: 1px solid #333333;
+}
+
+/* 文件树形视图样式 */
+QFileDialog QTreeView {
+    background-color: #1a1a1a;
+    color: #e1e1e1;
+    border: 1px solid #333333;
+}
+
+/* 文件对话框内按钮样式，与主应用按钮风格一致 */
+QFileDialog QPushButton {
+    background-color: #2979ff;
+    color: #ffffff;
+}
+/* ==================== processing_controls.py 中特定组件的样式 ==================== */
+/* 自定义组合框样式，用于处理控制面板中的特殊组件 */
+CustomComboBox {
+    background-color: #2979ff;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 12pt;
+    border: 2px solid #2979ff;
+    padding: 5px 15px;
+    min-height: 20px;
+}
+
+/* 自定义组合框悬停状态 */
+CustomComboBox:hover {
+    background-color: #FF8E8E;  /* 粉红色 */
+    border: 2px solid #FF8E8E;
+}
+
+/* 自定义组合框下拉列表样式 */
+CustomComboBox QAbstractItemView {
+    background-color: #2a2a2a;
+    color: white;
+    selection-background-color: #2979ff;
+    border: none;
+    outline: none;
+}
+
+/* 自定义组合框下拉列表项样式 */
+CustomComboBox QAbstractItemView::item {
+    min-height: 10px;
+    padding: 8px 15px;
+}
+
+/* 算法选择下拉框专用样式，使用蓝色系与文件按钮保持一致 */
+QComboBox#suanfa {
+    background-color: #2979ff;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 11pt;
+    border: 2px solid #2979ff;
+}
+
+/* 算法选择下拉框悬停状态 */
+QComboBox#suanfa:hover {
+    background-color: #7EDDD6;  /* 青色 */
+    border: 2px solid #7EDDD6;
+}
+
+/* 算法选择下拉框下拉列表样式 */
+QComboBox#suanfa QAbstractItemView {
+    background-color: #2a2a2a;
+    color: white;
+    selection-background-color: #2979ff;
+    border: none;
+    outline: none;
+}
+
+/* 算法选择下拉框下拉列表项样式 */
+QComboBox#suanfa QAbstractItemView::item {
+    min-height: 10px;
+    padding: 8px 15px;
+}
+
+/* 数据集选择下拉框专用样式，使用蓝色系与文件按钮保持一致 */
+QComboBox#sk {
+    background-color: #2979ff;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 11pt;
+    border: 2px solid #2979ff;
+}
+
+/* 数据集选择下拉框悬停状态 */
+QComboBox#sk:hover {
+    background-color: #FFE194;  /* 浅黄色 */
+    border: 2px solid #FFE194;
+}
+
+/* 数据集选择下拉框下拉列表样式 */
+QComboBox#sk QAbstractItemView {
+    background-color: #2a2a2a;
+    color: white;
+    selection-background-color: #2979ff;
+    border: none;
+    outline: none;
+}
+
+/* 数据集选择下拉框下拉列表项样式 */
+QComboBox#sk QAbstractItemView::item {
+    min-height: 10px;
+    padding: 8px 15px;
+}
+
+/* 后处理选择下拉框专用样式，使用蓝色系与文件按钮保持一致 */
+QComboBox#postprocessing_combo {
+    background-color: #2979ff;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    font-size: 11pt;
+    border: 2px solid #2979ff;
+}
+
+/* 后处理选择下拉框悬停状态 */
+QComboBox#postprocessing_combo:hover {
+    background-color: #FFE666;  /* 黄色 */
+    border: 2px solid #FFE666;
+}
+
+/* 后处理选择下拉框启用状态下的文字颜色 */
+QComboBox#postprocessing_combo:enabled {
+    color: #ffffff;
+}
+
+/* 后处理选择下拉框下拉列表样式 */
+QComboBox#postprocessing_combo QAbstractItemView {
+    background-color: #2a2a2a;
+    color: white;
+    selection-background-color: #2979ff;
+    border: none;
+    outline: none;
+}
+
+/* 后处理选择下拉框下拉列表项样式 */
+QComboBox#postprocessing_combo QAbstractItemView::item {
+    min-height: 10px;
+    padding: 8px 15px;
+}
+
+/* 后处理选择下拉框启用状态下拉列表文字颜色 */
+QComboBox#postprocessing_combo:enabled QAbstractItemView {
+    color: white;
+}
+
+/* ==================== 主窗口滑块控件的样式 ==================== */
+/* 医学图像控制滑块相关标签样式，使用青色强调其关联性 */
+QLabel#axial_label,
+QLabel#sagittal_label,
+QLabel#coronal_label,
+QLabel#window_width_label,
+QLabel#window_possion_label {
+    color: #00c6ff;
+    font-weight: bold;
+}
+
+/* 医学图像控制滑块样式，复用之前定义的基础滑块样式 */
+QSlider#axial_sild,
+QSlider#sagittal_sild,
+QSlider#coronal_sild,
+QSlider#window_width_sild,
+QSlider#window_possion_slid {
+    height: 20px;
+}
+
+/* 医学图像控制滑块轨道样式 */
+QSlider#axial_sild::groove:horizontal,
+QSlider#sagittal_sild::groove:horizontal,
+QSlider#coronal_sild::groove:horizontal,
+QSlider#window_width_sild::groove:horizontal,
+QSlider#window_possion_slid::groove:horizontal {
+    background: #3d3d3d;
+    height: 4px;
+    border-radius: 2px;
+}
+
+/* 医学图像控制滑块手柄样式 */
+QSlider#axial_sild::handle:horizontal,
+QSlider#sagittal_sild::handle:horizontal,
+QSlider#coronal_sild::handle:horizontal,
+QSlider#window_width_sild::handle:horizontal,
+QSlider#window_possion_slid::handle:horizontal {
+    background-color: #2979ff;
+    border: none;
+    width: 16px;
+    height: 16px;
+    margin: -6px 0;
+    border-radius: 8px;
+}
+
+/* 医学图像控制滑块手柄悬停状态 */
+QSlider#axial_sild::handle:horizontal:hover,
+QSlider#sagittal_sild::handle:horizontal:hover,
+QSlider#coronal_sild::handle:horizontal:hover,
+QSlider#window_width_sild::handle:horizontal:hover,
+QSlider#window_possion_slid::handle:horizontal:hover {
+    background-color: #3d8bff;
+}
+
+/* 医学图像控制滑块已滑过部分样式 */
+QSlider#axial_sild::sub-page:horizontal,
+QSlider#sagittal_sild::sub-page:horizontal,
+QSlider#coronal_sild::sub-page:horizontal,
+QSlider#window_width_sild::sub-page:horizontal,
+QSlider#window_possion_slid::sub-page:horizontal {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #00c6ff, stop: 1 #2979ff);
+    height: 4px;
+    border-radius: 2px;
+}
+
+/* 医学图像控制数值输入框样式 */
+QSpinBox#axial_intbtn,
+QSpinBox#sagittal_intbtn,
+QSpinBox#coronal_intbtn,
+QSpinBox#window_width_intbtn,
+QSpinBox#window_possion_intbtn {
+    background-color: #2a2a2a;
+    color: #e1e1e1;
+    border: 1px solid #3d3d3d;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+/* 医学图像控制数值输入框悬停状态 */
+QSpinBox#axial_intbtn:hover,
+QSpinBox#sagittal_intbtn:hover,
+QSpinBox#coronal_intbtn:hover,
+QSpinBox#window_width_intbtn:hover,
+QSpinBox#window_possion_intbtn:hover {
+    border: 1px solid #2979ff;
+}
