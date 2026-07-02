@@ -8,12 +8,5 @@ __pycache__/
 .idea/
 .vscode/
 
-# MHA数据文件
-mha/*.mha
-mha/*.npy
-
-# 图片
-image/
-
 # Claude Code
 .claude/
