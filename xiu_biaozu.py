@@ -922,7 +922,7 @@ ESC键 ——退出；"""
         self.guide_window.show()
         self.guide_window.move(290, 300)
         
-        window_name = "HuiYiZhiYing - Manual Modification"
+        window_name = "CereVAS - Manual Modification"
         cv2.namedWindow(window_name, cv2.WINDOW_AUTOSIZE)
         cv2.setMouseCallback(window_name, self.mouse_callback)
         

@@ -1,4 +1,6 @@
-# 脑血管 MRA 分割与可视化系统
+# CereVAS — Cerebral Vessel Analysis System
+
+脑血管 MRA 分割与可视化系统
 
 脑血管 MRA 分割与可视化系统 —— 基于深度学习的医学图像血管自动分割、交互式标注与三维可视化平台。
 
